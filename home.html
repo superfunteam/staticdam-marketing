@@ -77,10 +77,10 @@
         <div class="py-12">
             <div class="flex flex-col">
                 <!-- Hero Section -->
-                <div class="py-24 flex flex-col gap-12">
+                <div class="py-12 md:py-24 flex flex-col gap-12">
                     <!-- Logo/Icon -->
-                    <div class="">
-                        <svg width="48" height="48" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <div class="relative z-2">
+                        <svg class="" width="48" height="48" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M64.3778 64.3778C71.4846 57.2711 65.7149 39.979 51.4908 25.755C37.2667 11.5309 19.9747 5.76118 12.8679 12.8679C5.76117 19.9747 11.5309 37.2668 25.7549 51.4908C39.979 65.7149 57.2711 71.4846 64.3778 64.3778Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
                         <path d="M51.4908 51.4908C65.7149 37.2668 71.4846 19.9747 64.3778 12.8679C57.2711 5.76119 39.979 11.5309 25.7549 25.755C11.5309 39.979 5.76117 57.2711 12.8679 64.3778C19.9747 71.4846 37.2667 65.7149 51.4908 51.4908Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
                         </svg>
@@ -88,18 +88,23 @@
                     </div>
                     
                     <!-- Main Headline -->
-                    <h1 class="sf-pro text-6xl md:text-7xl font-medium text-gray-200 leading-tight tracking-tight max-w-6xl">
+                    <h1 class="sf-pro text-4xl sm:text-5xl md:text-7xl font-medium text-gray-200 leading-tight tracking-tight max-w-6xl relative z-2">
                         A digital asset manager that doesn't cost an arm and both legs.
                     </h1>
                     
                     <!-- Hero Image -->
-                    <div class="w-full h-96 md:h-[500px] lg:h-[600px] xl:h-[672px] bg-gray-800 rounded-lg overflow-hidden">
-                        <img 
-                            src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" 
-                            alt="A person sitting at a desk, focused on coding on a laptop with a minimalist workspace"
-                            class="w-full h-full object-cover"
+                    <div class="w-full mt-2 md:mt-12 relative z-2">
+                        <a href="https://supplierio.staticdam.com/" class="block hover:scale-105 transition-all duration-300 origin-center" target="_blank">
+                            <img 
+                            src="preview.webp" 
+                            alt="A look at staticDAM"
+                            class="rounded-xl border-2 border-[#202124]"
                         />
+                           
+                        </a>
                     </div>
+
+                    
                 </div>
                 
                 <!-- Content Section -->
@@ -111,26 +116,87 @@
                             <h2 class="sf-pro text-4xl md:text-5xl font-medium text-gray-200 leading-tight tracking-tight">
                                 Git-native, near-free, digital asset management
                             </h2>
+                            <div class="mt-8">
+                                <a href="https://supplierio.staticdam.com/" class="inline-flex items-center px-6 py-4 bg-white text-black sf-pro text-xl font-medium rounded-lg hover:bg-gray-100 transition-colors duration-200" target="_blank">
+                                    Check out the Demo
+                                </a>
+                            </div>
                         </div>
                         
                         <!-- Right Column -->
-                        <div class="flex-1 pt-2">
+                        <div class="flex-1 flex flex-col pt-2 gap-8">
                             <p class="sf-pro text-xl text-gray-200">
-                                File over app. staticDAM offers seamless integration with your existing workflows, ensuring you don't have to compromise on cost or efficiency.
+                                <svg class="mb-2" width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2_2706)">
+                                    <path d="M8.53503 3.20499H12.665C12.74 3.20499 12.8 3.26499 12.8 3.33999V7.46999" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M12.8001 3.20499L9.07007 6.93499" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M2.13501 3.20499H6.26501C6.34001 3.20499 6.40001 3.26499 6.40001 3.33999V7.46999" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M6.40529 3.20508L2.67029 6.93508" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M2.13501 9.59998H6.26501C6.34001 9.59998 6.40001 9.65997 6.40001 9.73497V13.865" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M6.40529 9.59991L2.67029 13.3349" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M8.53503 9.59998H12.665C12.74 9.59998 12.8 9.65997 12.8 9.73497V13.865" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M12.8001 9.59998L9.07007 13.335" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_2_2706">
+                                    <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                    </svg>
+                                    
+                                Organize big photo libraries in a breeze. Tags, people, downloads, all in one place. Easily share with your whole team.
+                            </p>
+                            <p class="sf-pro text-xl text-gray-200">
+                                <svg class="mb-2" width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2_2784)">
+                                    <path d="M7.99998 1.60501L2.66998 5.09501V10.915L7.99998 14.4L13.335 10.915V5.09501L7.99998 1.60501Z" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M7.995 8.58L13.33 5.095" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M2.66498 5.095L7.99998 8.58V14.4" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_2_2784">
+                                    <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                    </svg>
+                                    
+                                File over app. Built for developers, by a developer. Manage your flat files with CLI, GitHub, or the web (or webhooks).
+                            </p>
+
+                            <p class="sf-pro text-xl text-gray-200">
+                                <svg class="mb-2" width="32" height="32" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0_2_3202)">
+                                    <path d="M1.08496 7.995L14.92 8.01" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M1.08496 7.995L14.92 8.01" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M11.675 13.71L4.32996 2.29504" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M11.63 2.27002L9.615 5.45502L6.39 10.55L4.375 13.735" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    <path d="M1.08496 7.995L14.92 8.01" stroke="white" stroke-width="1.25" stroke-miterlimit="10"/>
+                                    </g>
+                                    <defs>
+                                    <clipPath id="clip0_2_3202">
+                                    <rect width="16" height="16" fill="white"/>
+                                    </clipPath>
+                                    </defs>
+                                    </svg>
+                                    
+                                Outlive me. Even without staticDAM, all your files (with baked in data), live inside of a version-controlled repo you own.
                             </p>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Testimonial Section -->
-                <div class="py-24 flex flex-col items-center gap-12 text-center">
+                <div class="py-24 flex flex-col items-center gap-12 text-center border-2 rounded-2xl border-gray-800 relative">
+
+                    <div class="absolute z-1 inset-0 h-full w-full bg-[radial-gradient(#222222_1px,transparent_1px)] [background-size:24px_24px]"
+></div>
                     <!-- Quote -->
-                    <blockquote class="sf-pro text-4xl md:text-5xl lg:text-6xl font-normal text-gray-200 leading-tight tracking-tight max-w-5xl">
+                    <blockquote class="sf-pro text-4xl md:text-5xl lg:text-6xl font-normal text-gray-200 leading-tight tracking-tight max-w-5xl relative z-2 px-12">
                         "I got $12k/yr quote and thought: nahh, I can make this."
                     </blockquote>
                     
                     <!-- Author -->
-                    <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-4 relative z-2">
                         <div class="w-16 h-16 rounded-2xl overflow-hidden bg-gray-700">
                             <img 
                                 src="clark.png" 
@@ -152,7 +218,27 @@
         </div>
         
         <!-- Footer -->
-        <div class="h-12 bg-gray-900"></div>
+        <div class="py-6">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center items-center gap-8">
+                <a href="https://wims.vc" class="inter text-gray-400 hover:text-gray-200 transition-colors flex flex items-center gap-2">
+                    <svg width="32" height="32" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M355.352 364.739C345.112 368.64 332.922 374.491 321.219 381.318L306.591 365.714L349.501 319.878L301.227 341.333L289.036 325.242L334.385 279.893L286.111 299.886L273.92 283.794L319.756 240.396L270.507 260.876L258.316 244.785L305.128 200.899C275.871 211.627 249.052 226.255 221.257 244.297L245.151 246.248L247.589 263.314L209.067 283.794L227.596 285.257L231.985 300.861C212.968 332.069 195.901 365.227 172.983 429.105L153.966 421.79C163.231 399.848 171.52 380.83 179.322 364.251C183.223 356.206 183.932 354.743 187.124 348.16C197.364 327.68 206.629 311.101 216.381 296.96L194.926 294.522L192.488 277.455L230.522 257.95L210.042 256L205.653 238.933C236.861 215.04 268.556 197.486 311.954 184.808L324.145 200.899L278.796 243.81L326.583 224.305L338.773 239.909L293.912 282.819L341.699 263.314L353.89 278.918L310.492 322.804L357.303 302.324L369.493 317.928L328.046 362.789C339.749 355.962 350.476 351.573 363.154 348.16C365.73 342.622 352.887 370.327 355.352 364.739Z" fill="white"/>
+                        <path d="M143.97 381.318C155.672 374.491 167.863 368.64 180.053 364.252L187.855 348.16C175.177 351.086 163.474 355.962 150.796 363.276L196.632 317.928L184.442 302.324L135.68 322.316L183.467 276.48L173.714 260.876L120.564 281.356L170.301 237.471L160.549 221.867L108.373 239.909L159.573 198.461L149.333 182.37L94.2325 200.899L150.796 159.451L140.556 143.848L79.6039 160.914C108.861 143.36 134.705 124.343 160.549 102.4L149.333 87.7715C110.324 105.813 75.7029 119.467 37.6686 127.756C62.5372 117.029 84.4801 106.301 100.572 95.0858L83.9925 82.8953C65.4629 98.0115 44.0077 112.152 17.6763 126.781L27.9163 143.848C62.0496 138.484 95.2077 126.781 128.853 110.202C104.472 128.731 80.0915 145.798 55.2229 160.914L64.9753 177.981L125.44 161.402L70.3391 202.362L80.5791 217.966L136.168 199.924L85.9429 241.371L95.6953 256.975L146.895 239.909L99.1087 282.819L111.299 298.423L161.524 278.918L114.225 323.779L126.415 339.871L176.152 319.878L129.829 365.714L143.97 381.318Z" fill="white"/>
+                        <path d="M293.912 160.914C277.821 171.642 251.977 183.345 214.431 195.048L225.646 212.114C269.044 193.097 296.838 176.518 310.979 163.352L301.227 146.286L244.663 160.427C276.358 144.823 304.152 125.318 327.558 100.937L316.343 87.7715C282.697 105.326 252.465 118.979 216.381 127.756C239.787 116.541 259.291 106.301 275.383 95.0857L258.804 82.8952C241.25 98.0114 221.257 112.152 196.876 126.781L207.116 143.848C237.836 137.996 267.581 126.781 299.276 109.714C276.846 127.269 251.977 143.36 223.208 158.476L233.448 175.543L293.912 160.914Z" fill="white"/>
+                        <path d="M354.377 364.739C347.063 381.318 339.749 399.848 330.972 421.791L349.501 429.105C371.932 363.764 386.56 330.118 406.553 298.423L401.189 282.819L385.585 282.332L424.107 259.413L418.743 243.81H394.362L441.661 217.966L434.347 199.924L398.751 202.85L457.265 174.08L449.463 156.038L401.189 164.328C437.76 148.236 468.968 127.756 494.324 102.4L483.109 87.7715C448.976 104.838 416.793 118.979 379.246 127.269C403.139 116.541 425.57 105.813 441.174 95.0858L424.595 82.8953C406.553 97.5239 384.61 112.152 358.278 126.781L368.518 143.848C402.652 137.996 434.347 126.293 468.48 108.739C443.124 127.756 414.842 144.823 382.659 158.476L390.461 177.981L435.81 170.179L378.271 198.461L386.073 216.991L422.156 213.577L373.882 239.909L379.246 256L405.09 255.512L365.105 278.918L370.469 295.01L390.461 295.497C380.709 310.613 371.932 327.192 362.179 348.16L354.377 364.739Z" fill="white"/>
+                    </svg>
+                    wims.vc
+                </a>
+                
+                <a href="https://wims.vc/contact" class="inter text-gray-400 hover:text-gray-200 transition-colors">
+                    Inquire
+                </a>
+
+                <a href="https://brandjson.com" class="inter text-gray-400 hover:text-gray-200 transition-colors">
+                    brand.json
+                </a>
+            </div>
+        </div>
     </div>
 </body>
 </html>
