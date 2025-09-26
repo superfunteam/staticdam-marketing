@@ -38,6 +38,8 @@
     <meta name="twitter:creator" content="@clarklab">
     <meta name="twitter:site" content="@staticdam">
     
+    <!-- Font Preloading removed due to CORS issues when testing locally -->
+    
     <!-- Additional SEO -->
     <meta name="theme-color" content="#000000">
     <meta name="msapplication-TileColor" content="#000000">
@@ -65,6 +67,7 @@
     }
     </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
         
@@ -74,7 +77,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Light.otf') format('opentype');
             font-weight: 300;
             font-style: normal;
-            font-display: swap;
+            font-display: optional;
         }
         
         @font-face {
@@ -82,7 +85,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Regular.otf') format('opentype');
             font-weight: 400;
             font-style: normal;
-            font-display: swap;
+            font-display: optional;
         }
         
         @font-face {
@@ -90,7 +93,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Medium.otf') format('opentype');
             font-weight: 500;
             font-style: normal;
-            font-display: swap;
+            font-display: optional;
         }
         
         @font-face {
@@ -98,7 +101,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Semibold.otf') format('opentype');
             font-weight: 600;
             font-style: normal;
-            font-display: swap;
+            font-display: optional;
         }
         
         @font-face {
@@ -106,19 +109,83 @@
             src: url('https://staticdam.com/SF-Pro-Display-Bold.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
-            font-display: swap;
+            font-display: optional;
         }
         
-        /* Font Family Classes - No Fallbacks */
+        /* Font Family Classes with System Fallbacks */
         .sf-pro { 
-            font-family: 'SF Pro Display'; 
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; 
         }
-        .inter { 
-            font-family: 'Inter'; 
+        .{ 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; 
+        }
+        
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .marquee-content {
+            animation: marquee 60s linear infinite;
         }
     </style>
 </head>
-<body class="bg-black text-gray-100">
+<body class="bg-black text-gray-100 sf-pro pt-[64px]">
+    <!-- Fixed Marquee Bar -->
+    <div class="fixed top-0 left-0 right-0 h-16 bg-white z-50 overflow-hidden">
+        <div class="h-full flex items-center">
+            <div class="marquee-container flex">
+                <div class="marquee-content flex items-center gap-6 text-black text-xl font-semibold whitespace-nowrap">
+                    <span>STORE PHOTOS AND VIDEOS</span>
+                    <span>·</span>
+                    <span>SAVE MONEY</span>
+                    <span>·</span>
+                    <span>GIT-NATIVE FLAT FILES</span>
+                    <span>·</span>
+                    <span>EASY SHARING</span>
+                    <span>·</span>
+                    <span>BOSSES LOVE US</span>
+                    <span>·</span>
+                    <span>STORE PHOTOS AND VIDEOS</span>
+                    <span>·</span>
+                    <span>SAVE MONEY</span>
+                    <span>·</span>
+                    <span>GIT-NATIVE FLAT FILES</span>
+                    <span>·</span>
+                    <span>EASY SHARING</span>
+                    <span>·</span>
+                    <span>BOSSES LOVE US</span>
+                    <span>·</span>
+                    <span>STORE PHOTOS AND VIDEOS</span>
+                    <span>·</span>
+                    <span>SAVE MONEY</span>
+                    <span>·</span>
+                    <span>GIT-NATIVE FLAT FILES</span>
+                    <span>·</span>
+                    <span>EASY SHARING</span>
+                    <span>·</span>
+                    <span>BOSSES LOVE US</span>
+                    <span>·</span>
+                    <span>STORE PHOTOS AND VIDEOS</span>
+                    <span>·</span>
+                    <span>SAVE MONEY</span>
+                    <span>·</span>
+                    <span>GIT-NATIVE FLAT FILES</span>
+                    <span>·</span>
+                    <span>EASY SHARING</span>
+                    <span>·</span>
+                    <span>BOSSES LOVE US</span>
+                    <span>·</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="min-h-screen bg-black px-6 md:px-12">
         <!-- Container -->
         <div class="py-12">
@@ -142,11 +209,7 @@
                     <!-- Hero Image -->
                     <div class="w-full mt-2 md:mt-12 relative z-2">
                         <a href="https://supplierio.staticdam.com/" class="block hover:scale-105 transition-all duration-300 origin-center" target="_blank">
-                            <img 
-                            src="preview.webp" 
-                            alt="A look at staticDAM"
-                            class="rounded-xl border-2 border-[#202124]"
-                        />
+                            <video src="preview.mp4" autoplay loop muted playsinline class="w-full rounded-xl border-2 border-[#202124]"></video>
                            
                         </a>
                     </div>
@@ -231,6 +294,342 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Features Section -->
+                <div class="bg-black py-12 md:py-24 relative">
+                    <!-- Title -->
+                    <h2 class="sf-pro text-4xl md:text-5xl lg:text-6xl font-semibold text-gray-200 text-center tracking-tight mb-12 md:mb-16 md:mt-24">
+                        Why staticDAM?
+                    </h2>
+                    
+                    <!-- Bento Grid -->
+                    <div class="flex flex-col gap-6 md:gap-8">
+                        <!-- Row 1 -->
+                        <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+                            <!-- Bento 1 - Workflow (Large) -->
+                            <div class="flex-1 lg:basis-3/5 h-96 md:h-[480px] rounded-3xl border-2 border-gray-800 bg-[radial-gradient(#333333_1px,transparent_1px)] [background-size:24px_24px] overflow-hidden relative">
+                                <div class="flex flex-col h-full pt-8 md:pt-12 ">
+                                    <div class="mb-6 md:mb-10 px-8 md:px-12">
+                                        <h3 class="sf-pro text-2xl/7 md:text-3xl/8 font-semibold text-gray-200 tracking-tight">
+                                            <span class="text-white">Fits any workflow.</span> 
+                                            <span class="font-normal text-gray-300">Flat files and git tracking, no limit to your access. Perfect for AI agents and automations.</span>
+                                        </h3>
+                                    </div>
+                                    
+                                    <!-- Image div -->
+                                    <div class="basis-0 flex flex-col grow items-start min-h-px min-w-px relative shrink-0 w-full">
+                                        <div class="h-[405px] overflow-clip relative shrink-0 w-full">
+                                            <video src="preview-workflow.mp4" autoplay loop muted playsinline class="w-[120%] max-w-none rounded-tl-xl overflow-hidden absolute left-12 top-0 border-2 border-gray-800"></video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bento 2 - Search (Square) -->
+                            <div class="lg:basis-2/5 h-96 md:h-[480px] rounded-3xl border-2 border-gray-800 bg-[radial-gradient(#333333_1px,transparent_1px)] [background-size:24px_24px] overflow-hidden relative">
+                                <div class="flex flex-col h-full pt-8 md:pt-12">
+                                    <div class="mb-6 md:mb-10 px-8 md:px-12">
+                                        <h3 class="sf-pro text-2xl/7 md:text-3xl/8 font-semibold text-gray-200 tracking-tight">
+                                            <span class="text-white">Find anything.</span> 
+                                            <span class="font-normal text-gray-300">Live search across all meta data.</span>
+                                        </h3>
+                                    </div>
+                                    
+                                    <!-- Image div -->
+                                    <div class="basis-0 flex flex-col grow items-start min-h-px min-w-px relative shrink-0 w-full">
+                                        <div class="h-[405px] relative shrink-0 w-full">
+                                            <video src="preview-search.mp4" autoplay loop muted playsinline class="w-[140%] max-w-none rounded-tr-xl overflow-hidden absolute right-8 top-0 border-2 border-gray-800"></video>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Row 2 -->
+                        <div class="flex flex-col lg:flex-row gap-6 md:gap-8">
+                            <!-- Bento 3 - Security (Square) -->
+                            <div class="lg:basis-2/5 h-96 md:h-[480px] rounded-3xl border-2 border-gray-800 bg-[radial-gradient(#333333_1px,transparent_1px)] [background-size:24px_24px] overflow-hidden relative">
+                                <div class="flex flex-col h-full pt-8 md:pt-12 ">
+                                    <div class="mb-6 md:mb-10 px-8 md:px-12">
+                                        <h3 class="sf-pro text-2xl/7 md:text-3xl/8 font-semibold text-gray-200 tracking-tight">
+                                            <span class="text-white">Secure backup.</span> 
+                                            <span class="font-normal text-gray-300">Entire history always safe in GitHub.</span>
+                                        </h3>
+                                    </div>
+                                    
+                                    <!-- Image div -->
+                                    <div class="basis-0 flex flex-col grow items-start min-h-px min-w-px relative shrink-0 w-full">
+                                        <div class="h-[405px] relative shrink-0 w-full">
+                                            <img src="preview-git.webp" alt="Git workflow" class="w-[160%] max-w-none rounded-tl-xl overflow-hidden absolute left-12 top-0 border-2 border-gray-800">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Bento 4 - Teams (Large) -->
+                            <div class="flex-1 lg:basis-3/5 h-96 md:h-[480px] rounded-3xl border-2 border-gray-800 bg-[radial-gradient(#333333_1px,transparent_1px)] [background-size:24px_24px] overflow-hidden relative">
+                                <div class="flex flex-col h-full pt-8 md:pt-12">
+                                    <div class="mb-6 md:mb-10 px-8 md:px-12">
+                                        <h3 class="sf-pro text-2xl/7 md:text-3xl/8 font-semibold text-gray-200 tracking-tight">
+                                            <span class="text-white">Perfect for teams, agencies, and brands.</span> 
+                                            <span class="font-normal text-gray-300">Have a lot of folks using your photo library? So did we.</span>
+                                        </h3>
+                                    </div>
+                                    
+                                    <!-- Image div -->
+                                    <div class="basis-0 flex flex-col grow items-start min-h-px min-w-px relative shrink-0 w-full">
+                                        <div class="h-[405px] overflow-clip relative shrink-0 w-full">
+                                            <img src="preview-share.webp" alt="Sharing is easy!" class="w-[102%] max-w-none rounded-tr-xl overflow-hidden absolute right-12 top-0 border-2 border-gray-800">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="pb-24 relative lg:mt-20 sf-pro">
+                    
+                    <div class="mx-auto relative z-2">
+                        <div class="">
+                            <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+                                <!-- Title Column -->
+                                <div class="lg:sticky lg:top-8 lg:self-start lg:col-span-2">
+                                    <h2 class="sf-pro text-4xl font-semibold tracking-tight text-white sm:text-5xl mt-24">Frequently asked <br>questions</h2>
+                                </div>
+                                
+                                <!-- FAQ Accordion Column -->
+                                <div class="lg:col-span-3">
+                                    <dl class="divide-y divide-white/10 mt-24">
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="0" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">How much does staticDAM cost? Why is it so cheap?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="0" class="mt-2 pr-12">
+                                                <p class="text-xl/8 text-gray-400">staticDAM itself is free and open source. Your only costs are GitHub (free, or very affordable) and hosting if you want to use the web interface. Most teams spend less than $5/month total. There's also the option topay for setup and support, if you're not techincal or don't have a dev team.</p>
+                                            </dd>
+                                        </div>
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="1" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">Why use Git for digital asset management?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="1" class="mt-2 pr-12" style="display: none;">
+                                                <p class="text-xl/8 text-gray-400 mb-4">Git provides bulletproof version control, complete change history, branching for experiments, and automatic backup to GitHub. Plus your assets live in standard folders that work with any software - no vendor lock-in.</p>
+                                                <p class="text-xl/8 text-gray-400">The cool kids call that <strong>file over app</strong>. Your complete library is always safe and easy to access, even without staticDAM. It's just files, and they're yours.</p>
+                                                
+                                            </dd>
+                                        </div>
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="2" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">Do I need to know Git to use staticDAM?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="2" class="mt-2 pr-12" style="display: none;">
+                                                <p class="text-xl/8 text-gray-400">Not at all. The web interface handles all Git operations automatically. Team members can upload, organize, and download assets through a familiar interface. Git works behind the scenes to keep everything organized and backed up. Your dev team will love you, though.</p>
+                                            </dd>
+                                        </div>
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="3" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">How does it compare to traditional DAM systems?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="3" class="mt-2 pr-12" style="display: none;">
+                                                <p class="text-xl/8 text-gray-400">Traditional DAMs cost thousands monthly and lock your assets in proprietary systems. staticDAM costs almost nothing, stores assets in standard folders, provides better version control, and gives you complete ownership of your data. The actual meta data is stored <strong>in the images themselves,</strong>, and it's EXTREMELY flexible if you want to add more meta data or models.</p>
+                                            </dd>
+                                        </div>
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="4" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">Can I integrate staticDAM with my existing workflow?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="4" class="mt-2 pr-12" style="display: none;">
+                                                <p class="text-xl/8 text-gray-400">Absolutely. Since assets are stored in regular folders, any software can access them directly. CLI, native desktop apps, web interface, VSCode, AI agents, the new intern- ANYTHING can access the files and make edits. The Git integration means every change is tracked and synced automatically. </p>
+                                            </dd>
+                                        </div>
+                                        <div class="py-6 first:pt-0 last:pb-0">
+                                            <dt>
+                                                <button type="button" data-faq-button="5" class="flex w-full items-start justify-between text-left text-white">
+                                                    <span class="text-xl/8 font-semibold">Is my data secure with staticDAM?</span>
+                                                    <span class="ml-6 flex h-7 items-center">
+                                                        <svg data-plus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6">
+                                                            <path d="M12 6v12m6-6H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                        <svg data-minus-icon viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="size-6" style="display: none;">
+                                                            <path d="M18 12H6" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </dt>
+                                            <dd data-faq-content="5" class="mt-2 pr-12" style="display: none;">
+                                                <p class="text-xl/8 text-gray-400">Extremely secure. Your assets are backed up to GitHub with enterprise-grade security. The complete history is preserved, you can use private repositories, and you maintain full control over access permissions. If you trust Git, you can trust staticDAM.</p>
+                                            </dd>
+                                        </div>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Section -->
+                <div class="sf-pro py-24 flex flex-col items-center gap-12 text-center">
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="sf-pro font-semibold text-4xl md:text-5xl lg:text-6xl font-normal text-white mb-6">
+                            Pricing
+                        </h2>
+                        <p class="text-xl/8 text-gray-400 mb-12">
+                            Free and affordable pricing plans for developers, teams, and brands.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto lg:-left-2 relative">
+                            <!-- Free Plan -->
+                            <div class="border-2 border-gray-800 rounded-2xl p-8 bg-[radial-gradient(#333333_1px,transparent_1px)] [background-size:24px_24px]">
+                                <h3 class="text-3xl font-semibold text-white mb-2">For Developers</h3>
+                                <p class="text-gray-400 mb-6 text-lg">It's open source</p>
+                                
+                                <div class="mb-8">
+                                    <span class="sf-pro text-7xl font-normal text-white">$0</span>
+                                    <span class="text-gray-400 text-lg">/forever</span>
+                                </div>
+                                
+                                <ul class="space-y-4 text-left mb-8">
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-300 text-xl md:text-2xl">Set it up yourself</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-300 text-xl md:text-2xl">Host it yourself</span>
+                                    </li>
+                                    <li class="flex items-center gap-3 pb-4">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-300 text-xl md:text-2xl">AI/LLM ready</span>
+                                    </li>
+                                    <li class="flex flex-col items-start gap-1.5 rounded-xl border-2 border-gray-800 p-3 bg-black">
+                                        <span class="text-gray-500 text-sm font-mono flex items-center gap-1.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="size-3">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 0 1 1.037-.443 48.282 48.282 0 0 0 5.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                                              </svg>
+                                              CODE AGENT</span>
+                                        <span class="text-gray-300 text-base italic">"Clone <a href="https://github.com/superfunteam/staticdam.com" class="underline">this dam repo</a> and guide me thru setting everything up"</span>
+                                    </li>
+                                    
+                                </ul>
+                                
+                                <a href="https://github.com/superfunteam/staticdam.com" class="w-full bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-medium transition-colors inline-block text-center text-lg">
+                                    Check out the Git Repo
+                                </a>
+                            </div>
+                            
+                            <!-- Pro Plan -->
+                            <div class="bg-white border border-gray-300 rounded-2xl p-8 lg:scale-110 lg:left-4 relative">
+                                <h3 class="text-3xl font-semibold text-black mb-2">For Brands</h3>
+                                <p class="text-gray-600 mb-6 text-lg">Teams, agencies, and offices</p>
+                                
+                                <div class="mb-8">
+                                    <span class="sf-pro text-7xl font-normal text-black">$1,299</span>
+                                    <span class="text-gray-600 text-lg">/once</span>
+                                </div>
+                        
+                                
+                                <ul class="space-y-4 text-left mb-8">
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-700 text-xl md:text-2xl">White glove setup</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-700 text-xl md:text-2xl">Unlimited team members</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-700 text-xl md:text-2xl">Backup History</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-700 text-xl md:text-2xl">No coding required</span>
+                                    </li> 
+                                    <li class="flex items-center gap-3">
+                                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                        </svg>
+                                        <span class="text-gray-700 text-xl md:text-2xl">Be a cost-cutting hero!</span>
+                                    </li>
+                                </ul>
+                                
+                                <button class="w-full bg-black hover:bg-gray-800 text-white text-3xl py-4 px-8 rounded-xl font-medium transition-colors flex items-center justify-center gap-4">
+                                    <svg class="" width="24" height="24" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M64.3778 64.3778C71.4846 57.2711 65.7149 39.979 51.4908 25.755C37.2667 11.5309 19.9747 5.76118 12.8679 12.8679C5.76117 19.9747 11.5309 37.2668 25.7549 51.4908C39.979 65.7149 57.2711 71.4846 64.3778 64.3778Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"></path>
+                                        <path d="M51.4908 51.4908C65.7149 37.2668 71.4846 19.9747 64.3778 12.8679C57.2711 5.76119 39.979 11.5309 25.7549 25.755C11.5309 39.979 5.76117 57.2711 12.8679 64.3778C19.9747 71.4846 37.2667 65.7149 51.4908 51.4908Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"></path>
+                                        </svg> Get staticDAM
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 
                 <!-- Testimonial Section -->
                 <div class="py-24 flex flex-col items-center gap-12 text-center border-2 rounded-2xl border-gray-800 relative lg:mt-20">
@@ -252,10 +651,10 @@
                             />
                         </div>
                         <div class="text-left">
-                            <div class="inter text-lg font-semibold text-gray-200 leading-6">
+                            <div class="text-lg font-semibold text-gray-200 leading-6">
                                 Clark Wimberly
                             </div>
-                            <div class="inter text-lg text-gray-400 leading-6">
+                            <div class="text-lg text-gray-400 leading-6">
                                 Made staticDAM
                             </div>
                         </div>
@@ -267,7 +666,7 @@
         <!-- Footer -->
         <div class="py-6">
             <div class="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center items-center gap-8">
-                <a href="https://wims.vc" class="inter text-gray-400 hover:text-gray-200 transition-colors flex flex items-center gap-2">
+                <a href="https://wims.vc" class="text-gray-400 hover:text-gray-200 transition-colors flex flex items-center gap-2">
                     <svg width="32" height="32" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M355.352 364.739C345.112 368.64 332.922 374.491 321.219 381.318L306.591 365.714L349.501 319.878L301.227 341.333L289.036 325.242L334.385 279.893L286.111 299.886L273.92 283.794L319.756 240.396L270.507 260.876L258.316 244.785L305.128 200.899C275.871 211.627 249.052 226.255 221.257 244.297L245.151 246.248L247.589 263.314L209.067 283.794L227.596 285.257L231.985 300.861C212.968 332.069 195.901 365.227 172.983 429.105L153.966 421.79C163.231 399.848 171.52 380.83 179.322 364.251C183.223 356.206 183.932 354.743 187.124 348.16C197.364 327.68 206.629 311.101 216.381 296.96L194.926 294.522L192.488 277.455L230.522 257.95L210.042 256L205.653 238.933C236.861 215.04 268.556 197.486 311.954 184.808L324.145 200.899L278.796 243.81L326.583 224.305L338.773 239.909L293.912 282.819L341.699 263.314L353.89 278.918L310.492 322.804L357.303 302.324L369.493 317.928L328.046 362.789C339.749 355.962 350.476 351.573 363.154 348.16C365.73 342.622 352.887 370.327 355.352 364.739Z" fill="white"/>
                         <path d="M143.97 381.318C155.672 374.491 167.863 368.64 180.053 364.252L187.855 348.16C175.177 351.086 163.474 355.962 150.796 363.276L196.632 317.928L184.442 302.324L135.68 322.316L183.467 276.48L173.714 260.876L120.564 281.356L170.301 237.471L160.549 221.867L108.373 239.909L159.573 198.461L149.333 182.37L94.2325 200.899L150.796 159.451L140.556 143.848L79.6039 160.914C108.861 143.36 134.705 124.343 160.549 102.4L149.333 87.7715C110.324 105.813 75.7029 119.467 37.6686 127.756C62.5372 117.029 84.4801 106.301 100.572 95.0858L83.9925 82.8953C65.4629 98.0115 44.0077 112.152 17.6763 126.781L27.9163 143.848C62.0496 138.484 95.2077 126.781 128.853 110.202C104.472 128.731 80.0915 145.798 55.2229 160.914L64.9753 177.981L125.44 161.402L70.3391 202.362L80.5791 217.966L136.168 199.924L85.9429 241.371L95.6953 256.975L146.895 239.909L99.1087 282.819L111.299 298.423L161.524 278.918L114.225 323.779L126.415 339.871L176.152 319.878L129.829 365.714L143.97 381.318Z" fill="white"/>
@@ -277,15 +676,54 @@
                     wims.vc
                 </a>
                 
-                <a href="https://wims.vc/contact" class="inter text-gray-400 hover:text-gray-200 transition-colors">
+                <a href="https://wims.vc/contact" class="text-gray-400 hover:text-gray-200 transition-colors">
                     Inquire
                 </a>
 
-                <a href="https://brandjson.com" class="inter text-gray-400 hover:text-gray-200 transition-colors">
+                <a href="https://brandjson.com" class="text-gray-400 hover:text-gray-200 transition-colors">
                     brand.json
                 </a>
             </div>
         </div>
     </div>
+
+    <script>
+        // Marquee seamless scrolling
+        document.addEventListener('DOMContentLoaded', function() {
+            const marqueeContent = document.querySelector('.marquee-content');
+            const marqueeContainer = document.querySelector('.marquee-container');
+            
+            // Clone the marquee content for seamless loop
+            const clonedContent = marqueeContent.cloneNode(true);
+            marqueeContainer.appendChild(clonedContent);
+        });
+        
+        // Clean FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all FAQ buttons
+            const faqButtons = document.querySelectorAll('[data-faq-button]');
+            
+            // Add click handler to each button
+            faqButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = this.getAttribute('data-faq-button');
+                    const content = document.querySelector(`[data-faq-content="${index}"]`);
+                    const plusIcon = this.querySelector('[data-plus-icon]');
+                    const minusIcon = this.querySelector('[data-minus-icon]');
+                    
+                    // Toggle content visibility
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block';
+                        plusIcon.style.display = 'none';
+                        minusIcon.style.display = 'block';
+                    } else {
+                        content.style.display = 'none';
+                        plusIcon.style.display = 'block';
+                        minusIcon.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
