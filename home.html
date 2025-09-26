@@ -38,7 +38,9 @@
     <meta name="twitter:creator" content="@clarklab">
     <meta name="twitter:site" content="@staticdam">
     
-    <!-- Font Preloading removed due to CORS issues when testing locally -->
+    <!-- Font Preloading for better performance -->
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
     
     <!-- Additional SEO -->
     <meta name="theme-color" content="#000000">
@@ -77,7 +79,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Light.otf') format('opentype');
             font-weight: 300;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         
         @font-face {
@@ -85,7 +87,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Regular.otf') format('opentype');
             font-weight: 400;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         
         @font-face {
@@ -93,7 +95,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Medium.otf') format('opentype');
             font-weight: 500;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         
         @font-face {
@@ -101,7 +103,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Semibold.otf') format('opentype');
             font-weight: 600;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         
         @font-face {
@@ -109,7 +111,7 @@
             src: url('https://staticdam.com/SF-Pro-Display-Bold.otf') format('opentype');
             font-weight: 700;
             font-style: normal;
-            font-display: optional;
+            font-display: swap;
         }
         
         /* Font Family Classes with System Fallbacks */
