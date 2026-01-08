@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation - staticDAM</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://staticdam.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://staticdam.com/favicon.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn how to use staticDAM - the git-native digital asset manager. Your images. Your metadata. Your rules.">
+    <meta name="keywords" content="staticDAM documentation, DAM guide, digital asset management, Git-based DAM">
+    <meta name="author" content="Clark Wimberly">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://staticdam.com/docs">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staticdam.com/docs">
+    <meta property="og:title" content="Documentation - staticDAM">
+    <meta property="og:description" content="Learn how to use staticDAM - the git-native digital asset manager. Your images. Your metadata. Your rules.">
+    <meta property="og:image" content="https://staticdam.com/unfurl.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Documentation - staticDAM">
+    <meta name="twitter:description" content="Learn how to use staticDAM - the git-native digital asset manager.">
+
+    <!-- Font Preloading -->
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <meta name="theme-color" content="#000000">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .sf-pro {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 4px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 2px;
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .copy-btn.copied {
+            color: #22c55e;
+        }
+
+        .mobile-nav {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .mobile-nav.open {
+            max-height: 800px;
+        }
+
+        .code-block {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="bg-black text-gray-100 sf-pro">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800 pt-2">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="home.html" class="flex items-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M64.3778 64.3778C71.4846 57.2711 65.7149 39.979 51.4908 25.755C37.2667 11.5309 19.9747 5.76118 12.8679 12.8679C5.76117 19.9747 11.5309 37.2668 25.7549 51.4908C39.979 65.7149 57.2711 71.4846 64.3778 64.3778Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
+                        <path d="M51.4908 51.4908C65.7149 37.2668 71.4846 19.9747 64.3778 12.8679C57.2711 5.76119 39.979 11.5309 25.7549 25.755C11.5309 39.979 5.76117 57.2711 12.8679 64.3778C19.9747 71.4846 37.2667 65.7149 51.4908 51.4908Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
+                    </svg>
+                    <span class="text-xl font-medium text-white">staticDAM</span>
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="flex items-center gap-6">
+                    <a href="home.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                    <a href="docs.html" class="text-white font-medium">Docs</a>
+                    <a href="https://supplierio.staticdam.com/" target="_blank" class="inline-flex items-center px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                        Demo
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-12 py-8 lg:py-12">
+
+            <!-- Mobile Navigation Dropdown -->
+            <div class="lg:hidden">
+                <button id="mobile-nav-toggle" class="w-full flex items-center justify-between px-4 py-3 bg-gray-900 border border-gray-800 rounded-xl text-left">
+                    <span class="flex items-center gap-2">
+                        <span class="material-icons-outlined text-gray-400">menu_book</span>
+                        <span class="text-white font-medium">Documentation</span>
+                    </span>
+                    <span class="material-icons-outlined text-gray-400 transition-transform" id="mobile-nav-icon">expand_more</span>
+                </button>
+                <nav id="mobile-nav" class="mobile-nav mt-2 bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+                    <div class="p-2">
+                        <a href="#overview" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">auto_awesome</span>
+                            <span>Overview</span>
+                        </a>
+                        <a href="#why-staticdam" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">lightbulb</span>
+                            <span>Why staticDAM</span>
+                        </a>
+                        <a href="#browse-search" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">search</span>
+                            <span>Browse & Search</span>
+                        </a>
+                        <a href="#downloads" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">download</span>
+                            <span>Downloads</span>
+                        </a>
+                        <a href="#organizing" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">sell</span>
+                            <span>Organizing Assets</span>
+                        </a>
+                        <a href="#how-it-works" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">settings_suggest</span>
+                            <span>How It Works</span>
+                        </a>
+                        <a href="#for-developers" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">code</span>
+                            <span>For Developers</span>
+                        </a>
+                        <a href="#pricing" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">payments</span>
+                            <span>Pricing</span>
+                        </a>
+                        <a href="#faq" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                            <span class="material-icons-outlined text-xl">help_outline</span>
+                            <span>FAQ</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Desktop Sidebar -->
+            <aside class="hidden lg:block w-64 shrink-0">
+                <div class="sticky top-24">
+                    <nav class="sidebar-scroll max-h-[calc(100vh-8rem)] overflow-y-auto pr-4">
+                        <div class="mb-4">
+                            <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Documentation</span>
+                        </div>
+                        <div class="space-y-1">
+                            <a href="#overview" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">auto_awesome</span>
+                                <span>Overview</span>
+                            </a>
+                            <a href="#why-staticdam" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">lightbulb</span>
+                                <span>Why staticDAM</span>
+                            </a>
+                            <a href="#browse-search" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">search</span>
+                                <span>Browse & Search</span>
+                            </a>
+                            <a href="#downloads" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">download</span>
+                                <span>Downloads</span>
+                            </a>
+                            <a href="#organizing" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">sell</span>
+                                <span>Organizing Assets</span>
+                            </a>
+                            <a href="#how-it-works" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">settings_suggest</span>
+                                <span>How It Works</span>
+                            </a>
+                            <a href="#for-developers" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">code</span>
+                                <span>For Developers</span>
+                            </a>
+                            <a href="#pricing" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">payments</span>
+                                <span>Pricing</span>
+                            </a>
+                            <a href="#faq" class="nav-item flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
+                                <span class="material-icons-outlined text-xl">help_outline</span>
+                                <span>FAQ</span>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="flex-1 min-w-0">
+                <!-- Hero -->
+                <div class="mb-12 lg:mb-16">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight mb-4">
+                        Documentation
+                    </h1>
+                    <p class="text-xl text-gray-400 max-w-2xl">
+                        Your images. Your metadata. Your rules.
+                    </p>
+                </div>
+
+                <!-- Sections -->
+                <div class="space-y-16 lg:space-y-24">
+
+                    <!-- Overview -->
+                    <section id="overview" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">auto_awesome</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Overview</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="overview">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="overview">
+                            <p class="text-lg text-gray-300 mb-6">
+                                staticDAM is a modern Digital Asset Management system that stores everything in Git. No expensive subscriptions. No proprietary databases. No vendor lock-in. Just your files, organized exactly how you want them.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Who Is This For?</h3>
+                            <p class="text-gray-400 mb-4">
+                                You're a marketing team, creative agency, or business that manages images—product photos, team headshots, campaign assets, brand materials. You need a place to organize them, tag them, search them, and share them with your team.
+                            </p>
+                            <p class="text-gray-400 mb-4">
+                                You've probably looked at enterprise DAM systems like Bynder, Brandfolder, or Canto. You've seen the price tags: <strong class="text-white">$30,000 to $100,000 per year</strong>. You've sat through sales demos with features you'll never use. You've wondered: <em>"Do we really need all this?"</em>
+                            </p>
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">You don't.</strong>
+                            </p>
+                            <p class="text-gray-400">
+                                staticDAM gives you what you actually need: a beautiful interface to browse your images, smart filtering by category/person/tag/product, one-click downloads in any format, and metadata that travels with your files forever.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Why staticDAM -->
+                    <section id="why-staticdam" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">lightbulb</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Why staticDAM</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="why-staticdam">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="why-staticdam">
+                            <h3 class="text-xl font-semibold text-white mb-3">The Problem with Traditional DAM Systems</h3>
+
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">They're expensive.</strong> Enterprise DAM software charges per user, per asset, per GB, per feature. A mid-size marketing team can easily spend $50,000/year just to store and organize images. That's money that could go toward actually creating content.
+                            </p>
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">Your data is trapped.</strong> When you add tags and categories in a traditional DAM, that information goes into their proprietary database. Want to switch providers? Good luck exporting those tags. Want to use your images in another tool? The metadata stays behind. You're locked in.
+                            </p>
+                            <p class="text-gray-400 mb-6">
+                                <strong class="text-white">They're overcomplicated.</strong> Most DAM systems were built for enterprise workflows you'll never need. Approval chains. Asset versioning. Rights management. Workflow automation. AI tagging. Integration marketplaces. You end up paying for 100 features to use 5.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-10 mb-3">How staticDAM Is Different</h3>
+
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">Your images live in Git.</strong> Git is the same technology developers use to track every change to their code. It's battle-tested, free, and gives you superpowers: full history of every change, the ability to undo anything, bulletproof backups on GitHub's infrastructure, and free or very cheap hosting.
+                            </p>
+
+                            <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 my-6">
+                                <p class="text-gray-300 flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white mt-0.5">lightbulb</span>
+                                    <span><strong class="text-white">Think of Git like Google Docs' version history</strong>, but for your entire image library.</span>
+                                </p>
+                            </div>
+
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">Metadata lives inside your images.</strong> Here's the magic: when you tag an image in staticDAM, that tag is written directly into the image file itself using industry-standard EXIF data. The same format professional cameras and tools like Adobe Lightroom use.
+                            </p>
+                            <p class="text-gray-400 mb-4">
+                                This means your tags travel with your files forever. Open any image in any tool and the metadata is there. Switch systems anytime without losing your organization. No database to corrupt, crash, or lose.
+                            </p>
+                            <p class="text-gray-400 mb-4">
+                                <strong class="text-white">No database means nothing to break.</strong> Traditional DAM systems need servers, databases, backups, security patches, and ongoing maintenance. staticDAM needs a folder of images and a free Netlify account. There's literally no database. The manifest is regenerated automatically from your images whenever something changes.
+                            </p>
+                            <p class="text-gray-400">
+                                <strong class="text-white">Open source means freedom.</strong> staticDAM's code is completely open source. You can see exactly how it works. You can modify it. You can host it yourself. You're never at the mercy of a vendor's roadmap, pricing changes, or business decisions.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Browse & Search -->
+                    <section id="browse-search" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">search</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Browse & Search</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="browse-search">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="browse-search">
+                            <p class="text-lg text-gray-300 mb-6">
+                                Your entire image library in a clean, responsive grid. Find exactly what you need in seconds.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Filter by Anything</h3>
+                            <p class="text-gray-400 mb-4">
+                                Use the sidebar to filter your library by:
+                            </p>
+                            <ul class="text-gray-400 mb-6 space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">folder</span>
+                                    <span><strong class="text-white">Folder</strong> — Your natural directory structure</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">category</span>
+                                    <span><strong class="text-white">Category</strong> — Portrait, landscape, product, lifestyle, etc.</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">person</span>
+                                    <span><strong class="text-white">Person</strong> — Who's in the image</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">sell</span>
+                                    <span><strong class="text-white">Tags</strong> — Any descriptive keywords you want</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">inventory_2</span>
+                                    <span><strong class="text-white">Product</strong> — What products are featured</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-400 mb-6">
+                                Each filter shows a count of matching images, so you always know what you're working with.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">View in Detail</h3>
+                            <p class="text-gray-400 mb-4">
+                                Click any image to open the lightbox. Navigate with arrow keys or swipe on mobile. See every detail: file name, dimensions, size, camera and date information, and all your custom metadata.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Share Direct Links</h3>
+                            <p class="text-gray-400">
+                                Every image has a shareable permalink. Send it to a colleague, embed it in a document, or reference it in your project management tool.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Downloads -->
+                    <section id="downloads" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">download</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Downloads</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="downloads">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="downloads">
+                            <p class="text-lg text-gray-300 mb-6">
+                                Get exactly the file you need, in exactly the format you need it.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Any Format You Need</h3>
+                            <p class="text-gray-400 mb-4">
+                                Need a smaller version for the web? A different file format? Just choose what you want:
+                            </p>
+                            <ul class="text-gray-400 mb-6 space-y-2">
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">image</span>
+                                    <span><strong class="text-white">Formats</strong> — JPEG, WebP, AVIF, PNG</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">aspect_ratio</span>
+                                    <span><strong class="text-white">Size</strong> — Any width up to 4096 pixels</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white text-lg mt-0.5">tune</span>
+                                    <span><strong class="text-white">Quality</strong> — Dial in the compression</span>
+                                </li>
+                            </ul>
+                            <p class="text-gray-400">
+                                Downloads are generated on-demand—your original files stay pristine.
+                            </p>
+
+                            <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 mt-6">
+                                <p class="text-gray-300 flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white mt-0.5">info</span>
+                                    <span><strong class="text-white">Supported file types:</strong> JPEG, PNG, WebP, AVIF, HEIC, TIFF for images. MP4, MOV, WebM, AVI for videos (with animated thumbnail previews).</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Organizing Assets -->
+                    <section id="organizing" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">sell</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Organizing Assets</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="organizing">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="organizing">
+                            <p class="text-lg text-gray-300 mb-6">
+                                Tag, categorize, and organize through a simple interface. No command line required.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Edit Metadata Through the UI</h3>
+                            <p class="text-gray-400 mb-4">
+                                Select images, click edit, and update:
+                            </p>
+                            <ul class="text-gray-400 mb-6 space-y-1">
+                                <li>Categories</li>
+                                <li>People</li>
+                                <li>Tags</li>
+                                <li>Products</li>
+                            </ul>
+                            <p class="text-gray-400 mb-6">
+                                Changes are saved directly to the image files and synced to Git automatically. Your team sees updates immediately.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Track Every Change</h3>
+                            <p class="text-gray-400">
+                                Because everything lives in Git, you have a complete audit trail. Who added that tag? When was this image uploaded? What did the metadata look like last month? It's all there in the commit history.
+                            </p>
+
+                            <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 mt-6">
+                                <p class="text-gray-300 flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white mt-0.5">verified</span>
+                                    <span><strong class="text-white">Metadata that travels:</strong> Tags are written directly into your image files using industry-standard EXIF data. Export to Photoshop, Lightroom, or any other tool—your organization comes with it.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- How It Works -->
+                    <section id="how-it-works" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">settings_suggest</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">How It Works</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="how-it-works">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="how-it-works">
+                            <p class="text-lg text-gray-300 mb-6">
+                                Let's demystify the technology. Here's what happens under the hood:
+                            </p>
+
+                            <div class="code-block text-gray-300 mb-6">
+<pre class="m-0 text-sm">1. Your images live in a GitHub repository
+   (Think: a special folder in the cloud)
+
+2. staticDAM reads metadata directly from image files
+   (No separate database needed)
+
+3. You browse and edit through a beautiful web interface
+   (Works on any device)
+
+4. Edits are saved back to the image files
+   (And automatically tracked in Git)</pre>
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">When You Edit Metadata</h3>
+                            <ol class="text-gray-400 mb-6 space-y-2 list-decimal list-inside">
+                                <li>Your change is sent to a small cloud function</li>
+                                <li>The function tells GitHub to update the image file</li>
+                                <li>The metadata is written directly into the image's EXIF data</li>
+                                <li>The manifest is automatically regenerated</li>
+                                <li>Everyone sees the updated tags immediately</li>
+                            </ol>
+                            <p class="text-gray-400">
+                                It's all automatic. You just click, type, and save.
+                            </p>
+
+                            <div class="bg-gray-900 border border-gray-800 rounded-xl p-4 mt-6">
+                                <p class="text-gray-300 flex items-start gap-2">
+                                    <span class="material-icons-outlined text-white mt-0.5">security</span>
+                                    <span><strong class="text-white">Your data is safe.</strong> GitHub is trusted by millions of developers and companies worldwide. Your repository can be private, with additional security features like branch protection. Plus, you have a complete backup on every computer that clones the repo.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- For Developers -->
+                    <section id="for-developers" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">code</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">For Developers</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="for-developers">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="for-developers">
+                            <p class="text-lg text-gray-300 mb-6">
+                                staticDAM is MIT licensed. Clone it, fork it, modify it, deploy it—it's yours.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Requirements</h3>
+                            <ul class="text-gray-400 mb-6 space-y-1">
+                                <li>GitHub account (free)</li>
+                                <li>Netlify account (free tier works great)</li>
+                                <li>Node.js 18+ for local development</li>
+                            </ul>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Quick Start</h3>
+                            <div class="code-block text-gray-300 mb-6">
+<pre class="m-0 text-sm"><span class="text-gray-500"># Clone the repository</span>
+git clone https://github.com/superfunteam/staticdam.git
+cd staticdam
+
+<span class="text-gray-500"># Install dependencies</span>
+pnpm install
+
+<span class="text-gray-500"># Start the development server</span>
+pnpm dev</pre>
+                            </div>
+                            <p class="text-gray-400 mb-6">
+                                Open <code class="px-1.5 py-0.5 bg-gray-800 rounded text-sm">http://localhost:5173</code> and you're running.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Project Structure</h3>
+                            <div class="code-block text-gray-300 mb-6">
+<pre class="m-0 text-sm">/assets/              <span class="text-gray-500"># Your original images (with EXIF metadata)</span>
+/assets-thumbs/       <span class="text-gray-500"># Generated thumbnails (auto-created)</span>
+/data/manifest.json   <span class="text-gray-500"># Generated index (auto-created)</span>
+/site/                <span class="text-gray-500"># React frontend (Vite + Tailwind)</span>
+/netlify/functions/   <span class="text-gray-500"># API endpoints for downloads and editing</span>
+/scripts/             <span class="text-gray-500"># Build scripts</span></pre>
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">Adding Metadata via CLI</h3>
+                            <p class="text-gray-400 mb-4">
+                                You can add metadata using exiftool:
+                            </p>
+                            <div class="code-block text-gray-300 mb-6">
+<pre class="m-0 text-sm"><span class="text-gray-500"># Add a category</span>
+exiftool -IPTC:SupplementalCategories="product" image.jpg
+
+<span class="text-gray-500"># Add a person</span>
+exiftool -XMP-iptcExt:PersonInImage="Sarah Chen" headshot.jpg
+
+<span class="text-gray-500"># Add tags</span>
+exiftool -IPTC:Keywords="summer" -IPTC:Keywords="outdoor" hero.jpg</pre>
+                            </div>
+
+                            <p class="text-gray-400">
+                                Or just use the web interface after deployment—it's much easier for day-to-day use.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Pricing -->
+                    <section id="pricing" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">payments</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">Pricing</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="pricing">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="pricing">
+
+                            <div class="grid md:grid-cols-2 gap-6 mt-8">
+                                <!-- Free -->
+                                <div class="border border-gray-800 rounded-2xl p-6 bg-gray-900/50">
+                                    <h3 class="text-xl font-semibold text-white mb-2">Open Source</h3>
+                                    <p class="text-gray-400 mb-4">Free forever</p>
+                                    <div class="text-4xl font-semibold text-white mb-6">$0</div>
+                                    <ul class="space-y-3 text-gray-400 mb-6">
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-white">check</span>
+                                            Set it up yourself
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-white">check</span>
+                                            Full source code access
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-white">check</span>
+                                            Unlimited customization
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-white">check</span>
+                                            Community support
+                                        </li>
+                                    </ul>
+                                    <a href="https://github.com/superfunteam/staticdam.com" target="_blank" class="block w-full text-center bg-gray-800 hover:bg-gray-700 text-white py-3 px-6 rounded-xl font-medium transition-colors">
+                                        View on GitHub
+                                    </a>
+                                </div>
+
+                                <!-- Concierge -->
+                                <div class="border-2 border-white rounded-2xl p-6 bg-white text-black">
+                                    <h3 class="text-xl font-semibold mb-2">Concierge</h3>
+                                    <p class="text-gray-600 mb-4">Done for you</p>
+                                    <div class="text-4xl font-semibold mb-6">$12,000</div>
+                                    <ul class="space-y-3 text-gray-700 mb-6">
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-black">check</span>
+                                            Complete setup & deployment
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-black">check</span>
+                                            Asset & metadata migration
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-black">check</span>
+                                            Team training session
+                                        </li>
+                                        <li class="flex items-center gap-2">
+                                            <span class="material-icons-outlined text-lg text-black">check</span>
+                                            1 year priority support
+                                        </li>
+                                    </ul>
+                                    <a href="https://wims.vc/contact" class="block w-full text-center bg-black hover:bg-gray-800 text-white py-3 px-6 rounded-xl font-medium transition-colors">
+                                        Get in Touch
+                                    </a>
+                                </div>
+                            </div>
+
+                            <h3 class="text-xl font-semibold text-white mt-10 mb-3">Ongoing Costs</h3>
+                            <p class="text-gray-400 mb-4">
+                                With either option, your ongoing costs are minimal:
+                            </p>
+                            <ul class="text-gray-400 mb-6 space-y-1">
+                                <li><strong class="text-white">GitHub:</strong> Free for most teams</li>
+                                <li><strong class="text-white">Netlify:</strong> Free tier is generous; paid plans start at $19/month if needed</li>
+                                <li><strong class="text-white">Domain:</strong> ~$12/year if you want a custom domain</li>
+                            </ul>
+                            <p class="text-gray-400">
+                                Compare that to <strong class="text-white">$30,000–$100,000/year</strong> for enterprise DAM software.
+                            </p>
+
+                            <h3 class="text-xl font-semibold text-white mt-8 mb-3">After Year One</h3>
+                            <p class="text-gray-400">
+                                Concierge customers can continue on their own (it's your code and data, forever), or extend priority support at $2,400/year.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- FAQ -->
+                    <section id="faq" class="scroll-mt-24">
+                        <div class="flex items-start justify-between gap-4 mb-6">
+                            <div class="flex items-center gap-3">
+                                <span class="material-icons-outlined text-3xl text-white">help_outline</span>
+                                <h2 class="text-2xl md:text-3xl font-semibold text-white">FAQ</h2>
+                            </div>
+                            <button class="copy-btn flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-500 hover:text-white border border-gray-800 hover:border-gray-600 rounded-lg transition-colors" data-section="faq">
+                                <span class="material-icons-outlined text-base">content_copy</span>
+                                <span class="hidden sm:inline">Copy</span>
+                            </button>
+                        </div>
+                        <div class="prose prose-invert max-w-none" data-content="faq">
+
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">Can I migrate from Brandfolder/Bynder/Canto?</h3>
+                                    <p class="text-gray-400">Yes. Export your images (you can usually do this in bulk), and we can help map your existing taxonomy to staticDAM's metadata fields. The concierge service includes migration assistance.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">Can multiple people edit at once?</h3>
+                                    <p class="text-gray-400">Yes. The system uses a shared password for write access. Multiple team members can browse, download, and edit. Git handles any conflicts gracefully—in practice, they're rare since you're editing metadata, not the images themselves.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">Do I need technical skills to use it day-to-day?</h3>
+                                    <p class="text-gray-400">No. Once set up, staticDAM is as easy to use as any photo gallery app. Browse, search, click to view, download what you need. Editing metadata is just filling out a simple form. Setting it up requires developer skills, which is why we offer the concierge service.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">Can I customize the interface?</h3>
+                                    <p class="text-gray-400">Absolutely. It's open source React code with Tailwind CSS. Change colors, add your logo, modify the layout—whatever you need.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">What about access control?</h3>
+                                    <p class="text-gray-400">staticDAM uses a simple model: public read access (anyone with the URL can view), and password-protected write access (for editing metadata). If you need more complex permissions, you can modify the code or host it behind your existing auth system.</p>
+                                </div>
+
+                                <div>
+                                    <h3 class="text-lg font-semibold text-white mb-2">What if I need help after year one?</h3>
+                                    <p class="text-gray-400">You have several options: extend support for $2,400/year, use GitHub Issues for community support (free), or hire any developer—it's standard React/Node.js code.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- Footer CTA -->
+                <div class="mt-24 pt-12 border-t border-gray-800">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl md:text-3xl font-semibold text-white mb-4">Ready to take control of your digital assets?</h2>
+                        <p class="text-gray-400 mb-8">Your images and metadata belong to you—not locked in someone else's database.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <a href="https://github.com/superfunteam/staticdam.com" target="_blank" class="inline-flex items-center justify-center px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white font-medium rounded-xl transition-colors">
+                                <span class="material-icons-outlined mr-2">code</span>
+                                View on GitHub
+                            </a>
+                            <a href="https://wims.vc/contact" class="inline-flex items-center justify-center px-6 py-3 bg-white hover:bg-gray-100 text-black font-medium rounded-xl transition-colors">
+                                <span class="material-icons-outlined mr-2">mail</span>
+                                Contact for Concierge
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-8 border-t border-gray-800">
+                        <p class="text-gray-500">
+                            Built by people tired of paying enterprise prices for simple problems.
+                        </p>
+                        <div class="flex items-center gap-6">
+                            <a href="https://wims.vc" class="text-gray-500 hover:text-white transition-colors">wims.vc</a>
+                            <a href="https://github.com/superfunteam/staticdam.com" class="text-gray-500 hover:text-white transition-colors">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation toggle
+        const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+        const mobileNav = document.getElementById('mobile-nav');
+        const mobileNavIcon = document.getElementById('mobile-nav-icon');
+
+        mobileNavToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            mobileNavIcon.style.transform = mobileNav.classList.contains('open') ? 'rotate(180deg)' : '';
+        });
+
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('open');
+                mobileNavIcon.style.transform = '';
+            });
+        });
+
+        // Active nav item on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${sectionId}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+
+        // Copy section as markdown
+        const sectionMarkdown = {
+            'overview': `# Overview
+
+staticDAM is a modern Digital Asset Management system that stores everything in Git. No expensive subscriptions. No proprietary databases. No vendor lock-in. Just your files, organized exactly how you want them.
+
+## Who Is This For?
+
+You're a marketing team, creative agency, or business that manages images—product photos, team headshots, campaign assets, brand materials. You need a place to organize them, tag them, search them, and share them with your team.
+
+You've probably looked at enterprise DAM systems like Bynder, Brandfolder, or Canto. You've seen the price tags: **$30,000 to $100,000 per year**. You've sat through sales demos with features you'll never use. You've wondered: *"Do we really need all this?"*
+
+**You don't.**
+
+staticDAM gives you what you actually need: a beautiful interface to browse your images, smart filtering by category/person/tag/product, one-click downloads in any format, and metadata that travels with your files forever.`,
+
+            'why-staticdam': `# Why staticDAM
+
+## The Problem with Traditional DAM Systems
+
+**They're expensive.** Enterprise DAM software charges per user, per asset, per GB, per feature. A mid-size marketing team can easily spend $50,000/year just to store and organize images.
+
+**Your data is trapped.** When you add tags and categories in a traditional DAM, that information goes into their proprietary database. Want to switch providers? Good luck exporting those tags. You're locked in.
+
+**They're overcomplicated.** Most DAM systems were built for enterprise workflows you'll never need. Approval chains. Asset versioning. Rights management. You end up paying for 100 features to use 5.
+
+## How staticDAM Is Different
+
+**Your images live in Git.** Git is the same technology developers use to track every change to their code. It's battle-tested, free, and gives you superpowers: full history of every change, the ability to undo anything, bulletproof backups on GitHub's infrastructure.
+
+> Think of Git like Google Docs' version history, but for your entire image library.
+
+**Metadata lives inside your images.** When you tag an image in staticDAM, that tag is written directly into the image file itself using industry-standard EXIF data. Your tags travel with your files forever.
+
+**No database means nothing to break.** staticDAM needs a folder of images and a free Netlify account. There's literally no database.
+
+**Open source means freedom.** staticDAM's code is completely open source. You're never at the mercy of a vendor's roadmap, pricing changes, or business decisions.`,
+
+            'browse-search': `# Browse & Search
+
+Your entire image library in a clean, responsive grid. Find exactly what you need in seconds.
+
+## Filter by Anything
+
+- **Folder** — Your natural directory structure
+- **Category** — Portrait, landscape, product, lifestyle, etc.
+- **Person** — Who's in the image
+- **Tags** — Any descriptive keywords you want
+- **Product** — What products are featured
+
+Each filter shows a count of matching images, so you always know what you're working with.
+
+## View in Detail
+
+Click any image to open the lightbox. Navigate with arrow keys or swipe on mobile. See every detail: file name, dimensions, size, camera and date information, and all your custom metadata.
+
+## Share Direct Links
+
+Every image has a shareable permalink. Send it to a colleague, embed it in a document, or reference it in your project management tool.`,
+
+            'downloads': `# Downloads
+
+Get exactly the file you need, in exactly the format you need it.
+
+## Any Format You Need
+
+- **Formats** — JPEG, WebP, AVIF, PNG
+- **Size** — Any width up to 4096 pixels
+- **Quality** — Dial in the compression
+
+Downloads are generated on-demand—your original files stay pristine.
+
+**Supported file types:** JPEG, PNG, WebP, AVIF, HEIC, TIFF for images. MP4, MOV, WebM, AVI for videos (with animated thumbnail previews).`,
+
+            'organizing': `# Organizing Assets
+
+Tag, categorize, and organize through a simple interface. No command line required.
+
+## Edit Metadata Through the UI
+
+Select images, click edit, and update:
+- Categories
+- People
+- Tags
+- Products
+
+Changes are saved directly to the image files and synced to Git automatically. Your team sees updates immediately.
+
+## Track Every Change
+
+Because everything lives in Git, you have a complete audit trail. Who added that tag? When was this image uploaded? What did the metadata look like last month? It's all there in the commit history.
+
+> **Metadata that travels:** Tags are written directly into your image files using industry-standard EXIF data. Export to Photoshop, Lightroom, or any other tool—your organization comes with it.`,
+
+            'how-it-works': `# How It Works
+
+1. Your images live in a GitHub repository (Think: a special folder in the cloud)
+2. staticDAM reads metadata directly from image files (No separate database needed)
+3. You browse and edit through a beautiful web interface (Works on any device)
+4. Edits are saved back to the image files (And automatically tracked in Git)
+
+## When You Edit Metadata
+
+1. Your change is sent to a small cloud function
+2. The function tells GitHub to update the image file
+3. The metadata is written directly into the image's EXIF data
+4. The manifest is automatically regenerated
+5. Everyone sees the updated tags immediately
+
+It's all automatic. You just click, type, and save.
+
+> **Your data is safe.** GitHub is trusted by millions of developers and companies worldwide. Your repository can be private, with additional security features like branch protection.`,
+
+            'for-developers': `# For Developers
+
+staticDAM is MIT licensed. Clone it, fork it, modify it, deploy it—it's yours.
+
+## Requirements
+
+- GitHub account (free)
+- Netlify account (free tier works great)
+- Node.js 18+ for local development
+
+## Quick Start
+
+\`\`\`bash
+# Clone the repository
+git clone https://github.com/superfunteam/staticdam.git
+cd staticdam
+
+# Install dependencies
+pnpm install
+
+# Start the development server
+pnpm dev
+\`\`\`
+
+Open http://localhost:5173 and you're running.
+
+## Project Structure
+
+\`\`\`
+/assets/              # Your original images (with EXIF metadata)
+/assets-thumbs/       # Generated thumbnails (auto-created)
+/data/manifest.json   # Generated index (auto-created)
+/site/                # React frontend (Vite + Tailwind)
+/netlify/functions/   # API endpoints for downloads and editing
+/scripts/             # Build scripts
+\`\`\`
+
+## Adding Metadata via CLI
+
+\`\`\`bash
+# Add a category
+exiftool -IPTC:SupplementalCategories="product" image.jpg
+
+# Add a person
+exiftool -XMP-iptcExt:PersonInImage="Sarah Chen" headshot.jpg
+
+# Add tags
+exiftool -IPTC:Keywords="summer" -IPTC:Keywords="outdoor" hero.jpg
+\`\`\``,
+
+            'pricing': `# Pricing
+
+## Open Source — $0
+
+- Set it up yourself
+- Full source code access
+- Unlimited customization
+- Community support
+
+## Concierge — $12,000
+
+- Complete setup & deployment
+- Asset & metadata migration
+- Team training session
+- 1 year priority support
+
+## Ongoing Costs
+
+With either option:
+- **GitHub:** Free for most teams
+- **Netlify:** Free tier is generous; paid plans start at $19/month if needed
+- **Domain:** ~$12/year if you want a custom domain
+
+Compare that to **$30,000–$100,000/year** for enterprise DAM software.
+
+## After Year One
+
+Concierge customers can continue on their own (it's your code and data, forever), or extend priority support at $2,400/year.`,
+
+            'faq': `# FAQ
+
+## Can I migrate from Brandfolder/Bynder/Canto?
+
+Yes. Export your images (you can usually do this in bulk), and we can help map your existing taxonomy to staticDAM's metadata fields. The concierge service includes migration assistance.
+
+## Can multiple people edit at once?
+
+Yes. The system uses a shared password for write access. Multiple team members can browse, download, and edit. Git handles any conflicts gracefully.
+
+## Do I need technical skills to use it day-to-day?
+
+No. Once set up, staticDAM is as easy to use as any photo gallery app. Browse, search, click to view, download what you need. Editing metadata is just filling out a simple form.
+
+## Can I customize the interface?
+
+Absolutely. It's open source React code with Tailwind CSS. Change colors, add your logo, modify the layout—whatever you need.
+
+## What about access control?
+
+staticDAM uses a simple model: public read access (anyone with the URL can view), and password-protected write access (for editing metadata). If you need more complex permissions, you can modify the code or host it behind your existing auth system.
+
+## What if I need help after year one?
+
+You have several options: extend support for $2,400/year, use GitHub Issues for community support (free), or hire any developer—it's standard React/Node.js code.`
+        };
+
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                const sectionId = btn.getAttribute('data-section');
+                const markdown = sectionMarkdown[sectionId];
+
+                if (markdown) {
+                    try {
+                        await navigator.clipboard.writeText(markdown);
+                        btn.classList.add('copied');
+                        btn.querySelector('span:last-child').textContent = 'Copied!';
+
+                        setTimeout(() => {
+                            btn.classList.remove('copied');
+                            btn.querySelector('span:last-child').textContent = 'Copy';
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Failed to copy:', err);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
