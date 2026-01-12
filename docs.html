@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +37,101 @@
 
     <meta name="theme-color" content="#000000">
 
+    <!-- View Transitions -->
+    <meta name="view-transition" content="same-origin">
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        /* Theme CSS Custom Properties */
+        :root {
+            /* Dark theme (default) */
+            --color-bg: #000000;
+            --color-bg-secondary: #0a0a0a;
+            --color-bg-tertiary: #111111;
+            --color-bg-card: #1a1a1a;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #e5e5e5;
+            --color-text-tertiary: #d4d4d4;
+            --color-text-muted: #a3a3a3;
+            --color-text-faint: #737373;
+            --color-border: #262626;
+            --color-border-light: #333333;
+            --color-accent-bg: #ffffff;
+            --color-accent-text: #000000;
+            --color-grid-dot: #333333;
+            --color-divider: rgba(255, 255, 255, 0.1);
+            --color-scrollbar: #333333;
+            --color-code-bg: #111111;
+            --color-code-border: #333333;
+        }
+
+        [data-theme="light"] {
+            --color-bg: #ffffff;
+            --color-bg-secondary: #fafafa;
+            --color-bg-tertiary: #f5f5f5;
+            --color-bg-card: #f0f0f0;
+            --color-text-primary: #000000;
+            --color-text-secondary: #171717;
+            --color-text-tertiary: #262626;
+            --color-text-muted: #525252;
+            --color-text-faint: #737373;
+            --color-border: #e5e5e5;
+            --color-border-light: #d4d4d4;
+            --color-accent-bg: #000000;
+            --color-accent-text: #ffffff;
+            --color-grid-dot: #d4d4d4;
+            --color-divider: rgba(0, 0, 0, 0.1);
+            --color-scrollbar: #d4d4d4;
+            --color-code-bg: #f5f5f5;
+            --color-code-border: #e5e5e5;
+        }
+
+        /* Apply theme colors with transition */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+        }
+
+        /* Disable transitions for elements that shouldn't animate */
+        video, img, .no-transition {
+            transition: none;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-secondary);
+        }
+
+        /* View Transitions */
+        @view-transition {
+            navigation: auto;
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+        }
+
+        ::view-transition-old(root) {
+            animation-name: fade-out;
+        }
+
+        ::view-transition-new(root) {
+            animation-name: fade-in;
+        }
+
+        @keyframes fade-out {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         @font-face {
             font-family: 'SF Pro Display';
@@ -97,13 +188,13 @@
             background: transparent;
         }
         .sidebar-scroll::-webkit-scrollbar-thumb {
-            background: #333;
+            background: var(--color-scrollbar);
             border-radius: 2px;
         }
 
         .nav-item.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
+            background: var(--color-divider);
+            color: var(--color-text-primary);
         }
 
         .copy-btn.copied {
@@ -120,14 +211,91 @@
         }
 
         .code-block {
-            background: #111;
-            border: 1px solid #333;
+            background: var(--color-code-bg);
+            border: 1px solid var(--color-code-border);
             border-radius: 8px;
             padding: 16px;
             overflow-x: auto;
             font-family: 'SF Mono', Monaco, 'Courier New', monospace;
             font-size: 14px;
             line-height: 1.5;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            background-color: var(--color-divider);
+        }
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+        /* Light theme overrides for Tailwind classes */
+        [data-theme="light"] .bg-black { background-color: #ffffff; }
+        [data-theme="light"] .bg-black\/95 { background-color: rgba(255, 255, 255, 0.95); }
+        [data-theme="light"] .bg-white { background-color: #000000; }
+        [data-theme="light"] .bg-gray-100 { background-color: #171717; }
+        [data-theme="light"] .bg-gray-800 { background-color: #f5f5f5; }
+        [data-theme="light"] .bg-gray-900 { background-color: #fafafa; }
+        [data-theme="light"] .bg-gray-900\/50 { background-color: rgba(250, 250, 250, 0.5); }
+
+        [data-theme="light"] .text-white { color: #000000; }
+        [data-theme="light"] .text-black { color: #ffffff; }
+        [data-theme="light"] .text-gray-100 { color: #171717; }
+        [data-theme="light"] .text-gray-200 { color: #262626; }
+        [data-theme="light"] .text-gray-300 { color: #404040; }
+        [data-theme="light"] .text-gray-400 { color: #525252; }
+        [data-theme="light"] .text-gray-500 { color: #737373; }
+        [data-theme="light"] .text-gray-600 { color: #a3a3a3; }
+        [data-theme="light"] .text-gray-700 { color: #404040; }
+
+        [data-theme="light"] .border-gray-800 { border-color: #e5e5e5; }
+        [data-theme="light"] .border-white { border-color: #000000; }
+
+        [data-theme="light"] .hover\:bg-gray-100:hover { background-color: #171717; }
+        [data-theme="light"] .hover\:bg-gray-700:hover { background-color: #e5e5e5; }
+        [data-theme="light"] .hover\:bg-gray-800:hover { background-color: #f0f0f0; }
+        [data-theme="light"] .hover\:text-white:hover { color: #000000; }
+        [data-theme="light"] .hover\:bg-white\/5:hover { background-color: rgba(0, 0, 0, 0.05); }
+        [data-theme="light"] .hover\:border-gray-600:hover { border-color: #a3a3a3; }
+
+        /* SVG strokes in light mode */
+        [data-theme="light"] svg path[stroke="white"],
+        [data-theme="light"] svg circle[stroke="white"],
+        [data-theme="light"] svg rect[stroke="white"] { stroke: #000000; }
+        [data-theme="light"] svg path[fill="white"],
+        [data-theme="light"] svg circle[fill="white"],
+        [data-theme="light"] svg rect[fill="white"] { fill: #000000; }
+
+        /* Pricing card that needs to stay inverted in light mode */
+        [data-theme="light"] .pricing-card-light {
+            background-color: #000000;
+            border-color: #000000;
+            color: #ffffff;
+        }
+        [data-theme="light"] .pricing-card-light h3,
+        [data-theme="light"] .pricing-card-light div,
+        [data-theme="light"] .pricing-card-light p { color: #ffffff; }
+        [data-theme="light"] .pricing-card-light .text-gray-600 { color: #a3a3a3; }
+        [data-theme="light"] .pricing-card-light .text-gray-700 { color: #d4d4d4; }
+        [data-theme="light"] .pricing-card-light li { color: #d4d4d4; }
+        [data-theme="light"] .pricing-card-light span.material-icons-outlined { color: #ffffff; }
+        [data-theme="light"] .pricing-card-light a {
+            background-color: #ffffff;
+            color: #000000;
         }
     </style>
 </head>
@@ -150,6 +318,14 @@
                 <nav class="flex items-center gap-6">
                     <a href="home.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
                     <a href="docs.html" class="text-white font-medium">Docs</a>
+                    <button id="theme-toggle" class="theme-toggle text-gray-400 hover:text-white" aria-label="Toggle theme">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
                     <a href="https://supplierio.staticdam.com/" target="_blank" class="inline-flex items-center px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
                         Demo
                     </a>
@@ -681,7 +857,7 @@ exiftool -IPTC:Keywords="summer" -IPTC:Keywords="outdoor" hero.jpg</pre>
                                 </div>
 
                                 <!-- Concierge -->
-                                <div class="border-2 border-white rounded-2xl p-6 bg-white text-black">
+                                <div class="pricing-card-light border-2 border-white rounded-2xl p-6 bg-white text-black">
                                     <h3 class="text-xl font-semibold mb-2">Concierge</h3>
                                     <p class="text-gray-600 mb-4">Done for you</p>
                                     <div class="text-4xl font-semibold mb-6">$12,999</div>
@@ -803,6 +979,8 @@ exiftool -IPTC:Keywords="summer" -IPTC:Keywords="outdoor" hero.jpg</pre>
                         <div class="flex items-center gap-6">
                             <a href="https://wims.vc" class="text-gray-500 hover:text-white transition-colors">wims.vc</a>
                             <a href="https://github.com/superfunteam/staticdam.com" class="text-gray-500 hover:text-white transition-colors">GitHub</a>
+                            <a href="privacy.html" class="text-gray-500 hover:text-white transition-colors">Privacy</a>
+                            <a href="terms.html" class="text-gray-500 hover:text-white transition-colors">Terms</a>
                         </div>
                     </div>
                 </div>
@@ -811,6 +989,24 @@ exiftool -IPTC:Keywords="summer" -IPTC:Keywords="outdoor" hero.jpg</pre>
     </div>
 
     <script>
+        // Theme toggle - always defaults to dark, ignores system preference
+        (function() {
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+
+            // Only use light mode if user has explicitly chosen it
+            const userChoice = localStorage.getItem('theme');
+            const theme = userChoice === 'light' ? 'light' : 'dark';
+            html.setAttribute('data-theme', theme);
+
+            toggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+
         // Mobile navigation toggle
         const mobileNavToggle = document.getElementById('mobile-nav-toggle');
         const mobileNav = document.getElementById('mobile-nav');

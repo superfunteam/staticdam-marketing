@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - staticDAM</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://staticdam.com/favicon.png">
+    <link rel="apple-touch-icon" href="https://staticdam.com/favicon.png">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Privacy Policy for staticDAM - the git-native digital asset manager.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://staticdam.com/privacy">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://staticdam.com/privacy">
+    <meta property="og:title" content="Privacy Policy - staticDAM">
+    <meta property="og:description" content="Privacy Policy for staticDAM - the git-native digital asset manager.">
+
+    <!-- Font Preloading -->
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
+    <link rel="preload" href="https://staticdam.com/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
+
+    <meta name="theme-color" content="#000000">
+
+    <!-- View Transitions -->
+    <meta name="view-transition" content="same-origin">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        /* Theme CSS Custom Properties */
+        :root {
+            --color-bg: #000000;
+            --color-bg-secondary: #0a0a0a;
+            --color-bg-tertiary: #111111;
+            --color-text-primary: #ffffff;
+            --color-text-secondary: #e5e5e5;
+            --color-text-tertiary: #d4d4d4;
+            --color-text-muted: #a3a3a3;
+            --color-text-faint: #737373;
+            --color-border: #262626;
+            --color-border-light: #333333;
+            --color-accent-bg: #ffffff;
+            --color-accent-text: #000000;
+            --color-divider: rgba(255, 255, 255, 0.1);
+        }
+
+        [data-theme="light"] {
+            --color-bg: #ffffff;
+            --color-bg-secondary: #fafafa;
+            --color-bg-tertiary: #f5f5f5;
+            --color-text-primary: #000000;
+            --color-text-secondary: #171717;
+            --color-text-tertiary: #262626;
+            --color-text-muted: #525252;
+            --color-text-faint: #737373;
+            --color-border: #e5e5e5;
+            --color-border-light: #d4d4d4;
+            --color-accent-bg: #000000;
+            --color-accent-text: #ffffff;
+            --color-divider: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Apply theme colors with transition */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
+        }
+
+        /* Disable transitions for elements that shouldn't animate */
+        video, img, .no-transition {
+            transition: none;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text-secondary);
+        }
+
+        /* View Transitions */
+        @view-transition {
+            navigation: auto;
+        }
+
+        ::view-transition-old(root),
+        ::view-transition-new(root) {
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+        }
+
+        ::view-transition-old(root) {
+            animation-name: fade-out;
+        }
+
+        ::view-transition-new(root) {
+            animation-name: fade-in;
+        }
+
+        @keyframes fade-out {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Regular.otf') format('opentype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Semibold.otf') format('opentype');
+            font-weight: 600;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'SF Pro Display';
+            src: url('https://staticdam.com/SF-Pro-Display-Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        .sf-pro {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Theme toggle button */
+        .theme-toggle {
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: background-color 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .theme-toggle:hover {
+            background-color: var(--color-divider);
+        }
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+        }
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+        /* Light theme overrides */
+        [data-theme="light"] .bg-black { background-color: #ffffff; }
+        [data-theme="light"] .bg-black\/95 { background-color: rgba(255, 255, 255, 0.95); }
+        [data-theme="light"] .bg-white { background-color: #000000; }
+        [data-theme="light"] .bg-gray-800 { background-color: #f5f5f5; }
+        [data-theme="light"] .bg-gray-900 { background-color: #fafafa; }
+
+        [data-theme="light"] .text-white { color: #000000; }
+        [data-theme="light"] .text-black { color: #ffffff; }
+        [data-theme="light"] .text-gray-100 { color: #171717; }
+        [data-theme="light"] .text-gray-200 { color: #262626; }
+        [data-theme="light"] .text-gray-300 { color: #404040; }
+        [data-theme="light"] .text-gray-400 { color: #525252; }
+        [data-theme="light"] .text-gray-500 { color: #737373; }
+
+        [data-theme="light"] .border-gray-800 { border-color: #e5e5e5; }
+
+        [data-theme="light"] .hover\:bg-gray-100:hover { background-color: #171717; }
+        [data-theme="light"] .hover\:text-white:hover { color: #000000; }
+
+        [data-theme="light"] svg path[stroke="white"] { stroke: #000000; }
+    </style>
+</head>
+<body class="bg-black text-gray-100 sf-pro">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-gray-800 pt-2">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="home.html" class="flex items-center gap-3">
+                    <svg width="32" height="32" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M64.3778 64.3778C71.4846 57.2711 65.7149 39.979 51.4908 25.755C37.2667 11.5309 19.9747 5.76118 12.8679 12.8679C5.76117 19.9747 11.5309 37.2668 25.7549 51.4908C39.979 65.7149 57.2711 71.4846 64.3778 64.3778Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
+                        <path d="M51.4908 51.4908C65.7149 37.2668 71.4846 19.9747 64.3778 12.8679C57.2711 5.76119 39.979 11.5309 25.7549 25.755C11.5309 39.979 5.76117 57.2711 12.8679 64.3778C19.9747 71.4846 37.2667 65.7149 51.4908 51.4908Z" stroke="white" stroke-width="4.8" stroke-miterlimit="10"/>
+                    </svg>
+                    <span class="text-xl font-medium text-white">staticDAM</span>
+                </a>
+
+                <!-- Nav Links -->
+                <nav class="flex items-center gap-6">
+                    <a href="home.html#pricing" class="text-gray-400 hover:text-white transition-colors">Pricing</a>
+                    <a href="docs.html" class="text-gray-400 hover:text-white transition-colors">Docs</a>
+                    <button id="theme-toggle" class="theme-toggle text-gray-400 hover:text-white" aria-label="Toggle theme">
+                        <svg class="icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                        <svg class="icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                    </button>
+                    <a href="https://supplierio.staticdam.com/" target="_blank" class="inline-flex items-center px-4 py-2 bg-white text-black text-sm font-medium rounded-md hover:bg-gray-100 transition-colors">
+                        Demo
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 md:px-12 py-12 lg:py-24">
+        <!-- Hero -->
+        <div class="mb-12">
+            <h1 class="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4">
+                Privacy Policy
+            </h1>
+            <p class="text-lg text-gray-400">
+                Last updated: January 2025
+            </p>
+        </div>
+
+        <!-- Content -->
+        <div class="prose prose-invert max-w-none space-y-8">
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Overview</h2>
+                <p class="text-gray-300 mb-4">
+                    staticDAM ("we," "our," or "us") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you use our website and services.
+                </p>
+                <p class="text-gray-300">
+                    staticDAM is an open-source digital asset management system. When you self-host staticDAM, your data remains entirely under your control on your own infrastructure.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Information We Collect</h2>
+
+                <h3 class="text-xl font-medium text-white mt-6 mb-3">Website Visitors</h3>
+                <p class="text-gray-300 mb-4">
+                    When you visit our marketing website, we may collect:
+                </p>
+                <ul class="text-gray-300 space-y-2 list-disc list-inside mb-4">
+                    <li>Basic analytics data (page views, referral source, general location)</li>
+                    <li>Information you voluntarily provide when contacting us</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-white mt-6 mb-3">Concierge Service Customers</h3>
+                <p class="text-gray-300 mb-4">
+                    If you purchase our concierge setup service, we collect:
+                </p>
+                <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                    <li>Contact information (name, email, company)</li>
+                    <li>Payment information (processed securely by third-party providers)</li>
+                    <li>Technical requirements for your deployment</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">How We Use Your Information</h2>
+                <p class="text-gray-300 mb-4">
+                    We use collected information to:
+                </p>
+                <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                    <li>Provide and improve our services</li>
+                    <li>Respond to your inquiries and support requests</li>
+                    <li>Process transactions for concierge services</li>
+                    <li>Send important updates about our services (with your consent)</li>
+                    <li>Analyze website usage to improve user experience</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Data Storage and Security</h2>
+                <p class="text-gray-300 mb-4">
+                    <strong class="text-white">Self-hosted installations:</strong> When you deploy staticDAM yourself, all your digital assets and metadata are stored in your own GitHub repository and hosting infrastructure. We have no access to your data.
+                </p>
+                <p class="text-gray-300">
+                    <strong class="text-white">Our website:</strong> We implement appropriate technical and organizational measures to protect any personal data we collect through our marketing website.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Third-Party Services</h2>
+                <p class="text-gray-300 mb-4">
+                    Our website and services may use third-party providers for:
+                </p>
+                <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                    <li>Analytics (to understand website traffic)</li>
+                    <li>Payment processing (for concierge services)</li>
+                    <li>Email communications</li>
+                </ul>
+                <p class="text-gray-300 mt-4">
+                    These providers have their own privacy policies governing the use of your information.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Your Rights</h2>
+                <p class="text-gray-300 mb-4">
+                    You have the right to:
+                </p>
+                <ul class="text-gray-300 space-y-2 list-disc list-inside">
+                    <li>Access the personal data we hold about you</li>
+                    <li>Request correction of inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Withdraw consent for marketing communications</li>
+                    <li>Request a copy of your data in a portable format</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Cookies</h2>
+                <p class="text-gray-300">
+                    Our website uses minimal cookies for essential functionality, such as remembering your theme preference (dark/light mode). We do not use cookies for tracking or advertising purposes.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Changes to This Policy</h2>
+                <p class="text-gray-300">
+                    We may update this privacy policy from time to time. We will notify you of any significant changes by posting the new policy on this page with an updated revision date.
+                </p>
+            </section>
+
+            <section>
+                <h2 class="text-2xl font-semibold text-white mb-4">Contact Us</h2>
+                <p class="text-gray-300">
+                    If you have any questions about this privacy policy or our data practices, please contact us at <a href="https://wims.vc/contact" class="text-white underline hover:no-underline">wims.vc/contact</a>.
+                </p>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="mt-24 pt-8 border-t border-gray-800">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500">
+                    &copy; 2025 staticDAM. All rights reserved.
+                </p>
+                <div class="flex items-center gap-6">
+                    <a href="home.html" class="text-gray-500 hover:text-white transition-colors">Home</a>
+                    <a href="docs.html" class="text-gray-500 hover:text-white transition-colors">Docs</a>
+                    <a href="privacy.html" class="text-white">Privacy</a>
+                    <a href="terms.html" class="text-gray-500 hover:text-white transition-colors">Terms</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle - always defaults to dark, ignores system preference
+        (function() {
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+
+            // Only use light mode if user has explicitly chosen it
+            const userChoice = localStorage.getItem('theme');
+            const theme = userChoice === 'light' ? 'light' : 'dark';
+            html.setAttribute('data-theme', theme);
+
+            toggle.addEventListener('click', () => {
+                const currentTheme = html.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                html.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+            });
+        })();
+    </script>
+</body>
+</html>
